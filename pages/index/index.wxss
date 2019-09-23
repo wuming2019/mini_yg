@@ -3,3 +3,13 @@
   height: 340rpx;
 }
 /* 轮播图 结束 */
+
+/* 导航 开始 */
+.index_nav {
+  display: flex;
+}
+.index_nav navigator {
+  flex: 1;
+  padding: 20rpx;
+}
+/* 导航 结束 */
