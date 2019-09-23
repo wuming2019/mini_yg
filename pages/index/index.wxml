@@ -1,3 +1,4 @@
+<SearchInput></SearchInput>
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
