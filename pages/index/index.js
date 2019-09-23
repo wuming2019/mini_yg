@@ -1,7 +1,13 @@
 /*
 首页
-获取接口数据 轮播图
+1获取接口数据 轮播图
+2使用封装好的异步代码来发送请求
+3统一在request文件中加入了调用的loading方法
+（需要在发送出去的请求都回来了，再加上loading）
 */
+
+import { request } from "../../request/index.js"
+
 Page({
   data: {
     // 轮播图数组
@@ -20,40 +26,34 @@ Page({
 
   // 获取轮播图数据
   getSwiperData() {
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
-      success: (result) => {
-        // console.table(result.data.message)
-        this.setData({
-          swiperList: result.data.message
-        })
-      }
+    request({
+      url: "/home/swiperdata"
+    }).then(result => {
+      this.setData({
+        swiperList: result.data.message
+      })
     })
   },
 
   // 获取导航数据
   getCatitems() {
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
-      success: (result) => {
-        // console.table(result.data.message)
-        this.setData({
-          catitemList: result.data.message
-        })
-      }
+    request({
+      url: "/home/catitems"
+    }).then(result => {
+      this.setData({
+        catitemList: result.data.message
+      })
     })
   },
 
   // 获取楼层数据
   getfloorList() {
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
-      success: (result) => {
-        // console.table(result.data.message)
-        this.setData({
-          floorList: result.data.message
-        })
-      }
+    request({
+      url: "/home/floordata"
+    }).then(result => {
+      this.setData({
+        floorList: result.data.message
+      })
     })
   }
 })
